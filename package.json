@@ -1,0 +1,14 @@
+{
+  "name": "OrzClassifier",
+  "version": "0.0.0",
+  "description": "OrzClassifier",
+  "main": "app.js",
+  "author": {
+    "name": "admin_000",
+    "email": ""
+  },
+  "dependencies": {
+    "jsonfile": "^2.2.3",
+    "node-telegram-bot-api": "^0.21.1"
+  }
+}
