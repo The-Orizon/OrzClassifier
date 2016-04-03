@@ -12,7 +12,6 @@ var afile = './assigns.json';
 var assigns = confreader.readFileSync(afile);
 var tg = new TelegramLib(config.tg_bot_api_key, { polling: true });
 
-var tgid, tgusername;
 var inittime = Math.round(new Date().getTime() / 1000);
 
 tg.on('message', function (msg) {
@@ -29,6 +28,8 @@ tg.on('message', function (msg) {
                 tg.sendMessage(msg.chat.id, err);
             });
             tg.sendMessage(msg.chat.id, 'Operation Completed');
+        } else if (cmd.length == 1) {
+            tg.sendMessage(msg.from.id, JSON.stringify(assigns));
         }
         return;
     }
