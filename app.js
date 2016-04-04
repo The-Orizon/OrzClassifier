@@ -33,7 +33,11 @@ tg.on('message', function (msg) {
         }
         return;
     }
-    if (msg.text.slice(0, 1) == '#' && msg.reply_to_message != undefined && assigns[msg.text] != undefined) {
-        tg.forwardMessage(assigns[msg.text], msg.chat.id, msg.reply_to_message.message_id);
+    if (msg.reply_to_message != undefined) {
+        var hlist = msg.text.split(' ');
+        hlist.forEach(function (child){
+            if (assigns[child] != undefined)
+                tg.forwardMessage(assigns[child], msg.chat.id, msg.reply_to_message.message_id);
+        })
     }
 });
