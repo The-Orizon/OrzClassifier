@@ -17,6 +17,7 @@ var inittime = Math.round(new Date().getTime() / 1000);
 tg.on('message', function (msg) {
     if (msg.date < inittime) return;
     if (msg.chat.id > 0) return;
+    if (msg.text === undefined) return;
     if (msg.text.slice(0, 7) == '=assign') {
         var cmd = msg.text.split(' ');
         if (cmd.length == 3) {
